@@ -103,7 +103,7 @@ def create_Binary2TTFS_Circuit(Bits, binary_nums):
     return rec.get('events')['times']-excess_delay
 
 
-def test_script():
+def test_circuit():
      #Generate random binary numbers and assess the circuits performance
 
      trials_per_bit = 3
@@ -121,4 +121,4 @@ def test_script():
                 print(f'Output is: {circuit_output}, the decimal_num is: {decimal_num}')
                 nest.ResetKernel() #Removes previous nodes
 
-test_script()
+test_circuit()
