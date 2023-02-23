@@ -1,2 +1,2 @@
 # Neural-Code-Translation
-Codes to translate between neural encodings
+Contains codes to translate between neural encodings
