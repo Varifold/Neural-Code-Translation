@@ -15,7 +15,7 @@ This repository contains the following circuits:
 Each of these circuits is located in its respective Python script. A main script (main.py) is provided that executes test cases for each of these circuits.
 Requirements
 
-    NEST Simulator version 3.4
+The project has been tested with the NEST Simulator version 3.4. Other versions may also be compatible.
 
 Usage
 
