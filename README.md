@@ -24,6 +24,8 @@ Usage
 
 To execute the test cases for each circuit, simply run the main.py script from the root directory of the project:
 
+bash
+
 python main.py
 
 This will run a series of tests for each circuit using a maximum of 5 bits for the binary tests.
