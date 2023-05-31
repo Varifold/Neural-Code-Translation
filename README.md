@@ -6,6 +6,8 @@ Abstract
 In our study, we introduce neural circuits that enable translation between various spiking neural and non-neural encodings, such as rate, time-to-first-spike, and binary codes using the Leaky Integrate-and-Fire (LIF) neuron model. The development of such circuits is of great interest in the field of neuromorphic computing due to the distinct advantages of different neural encodings.
 
 As an application of these circuits, we introduce a high-bandwidth neural transmitter that encodes and transmits binary data through a single axon and then decodes the data at the target site. The techniques employed in our handcrafted neural circuits offer valuable insights into the capabilities of LIF neurons, illustrating the potential and versatility of these small-scale circuit designs in the broader domains of computational neuroscience and artificial intelligence.
+
+
 Repository Contents
 
 This repository contains the following circuits:
