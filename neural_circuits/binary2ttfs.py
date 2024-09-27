@@ -13,15 +13,11 @@ def create_connections_Binary2TTFS(Bits):
     W_arr = numpy.array([[0 for j in range(N)] for i in range(N)]) #Weight array
     del_arr = numpy.array([[1 for j in range(N)] for i in range(N)]) #Delay array
 
-
-    W_arr_2 = numpy.array([[0 for j in range(N)] for i in range(N)]) #Negative weight array
-    del_arr_2 = numpy.array([[1 for j in range(N)] for i in range(N)]) #Delay array
-
-
     for i in range(1,Bits):
         #Upper row
-        W_arr[i+1,i]=15
-        W_arr[2*Bits+1+i,i]=10
+        W_arr[i+1,i] = 15
+        W_arr[2*Bits+1+i,i] = 10
+        W_arr[2*Bits+i,i] = -15
 
         #Lower row
         W_arr[1+i,2*Bits+i] = 15
@@ -39,19 +35,17 @@ def create_connections_Binary2TTFS(Bits):
     #Connections from Activation neuron
     W_arr[1,0] = 15
     W_arr[2*Bits+1,0] = 10
-    del_arr[1,0] = 2
-    del_arr[2*Bits+1,0] = 2
+    del_arr[1,0] = 1
+    del_arr[2*Bits+1,0] = 1
 
     #Bit connections
     for i in range(1,Bits+1):
         #To top
-        W_arr[i,Bits+i] = -10
+        W_arr[i,Bits+i] = -15
         #To bot
-        W_arr_2[2*Bits+i,Bits+i] = -10
-        W_arr[2*Bits+i,Bits+i] = 10 
-        del_arr[2*Bits+i,Bits+i] = 2
+        W_arr[2*Bits+i,Bits+i] = 10
 
-    return W_arr, del_arr, W_arr_2, del_arr_2
+    return W_arr, del_arr
     
 
 
@@ -59,15 +53,15 @@ def create_connections_Binary2TTFS(Bits):
 
 def create_Binary2TTFS_Circuit(Bits, binary_nums):
 
-    excess_delay = Bits+4
-    simulation_time = 2**Bits+Bits+3
+    excess_delay = Bits+3
+    simulation_time = 2**Bits+Bits+2
 
     ndict = {"tau_m": 1000.0, 'V_min':[-90]+[-90]*2*Bits+[-70]*Bits+[-90]}
     neuronpop = nest.Create("iaf_psc_delta", 3*Bits+2, params=ndict)
 
-    W_arr, del_arr, W_arr_2, del_arr_2 = create_connections_Binary2TTFS(Bits)
+    W_arr, del_arr = create_connections_Binary2TTFS(Bits)
     connect_layers(neuronpop, W_arr, del_arr)
-    connect_layers(neuronpop, W_arr_2, del_arr_2)
+    #connect_layers(neuronpop, W_arr_2, del_arr_2)
 
 
     signal_generator = nest.Create("spike_generator",

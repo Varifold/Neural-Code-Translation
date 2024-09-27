@@ -77,7 +77,7 @@ def create_connections_TTFS2Binary_Parrot(Bits):
 
         #Bot reset
         W_arr_2[2*Bits + i, Bits+1+i] = -10
-        del_arr_2[2*Bits + i, Bits+1+i] = 2**(Bits - 1 - i)
+        del_arr_2[2*Bits + i, Bits+1+i] = 2**(Bits - 1 - i) + 1
 
     #To final neuron
     #This final parrot neuron can be used to determine when the circuit is finished. The circuit will always be done 2 timesteps after the final parrot neuron spikes.

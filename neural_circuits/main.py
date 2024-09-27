@@ -33,5 +33,5 @@ def run_tests(max_bits):
         print(f"Error in binary2ttfs test: {e}")
 
 if __name__ == "__main__":
-    MAX_BITS = 5  # Set your max_bits value here
+    MAX_BITS = 10  # Set your max_bits value here
     run_tests(MAX_BITS)
