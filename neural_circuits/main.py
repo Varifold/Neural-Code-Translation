@@ -12,6 +12,7 @@ def run_tests(max_bits):
     Args:
         max_bits (int): The maximum number of bits for the test scripts. 
     """
+    print("Running Tests...")
     try:
         ttfs2binary.test_script(max_bits)
     except Exception as e:
@@ -33,5 +34,5 @@ def run_tests(max_bits):
         print(f"Error in binary2ttfs test: {e}")
 
 if __name__ == "__main__":
-    MAX_BITS = 10  # Set your max_bits value here
+    MAX_BITS = 8  # Set your max_bits value here
     run_tests(MAX_BITS)
